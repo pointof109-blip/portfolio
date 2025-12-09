@@ -1,0 +1,323 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+/* -------------------------------------- */
+/* 0. BASE STYLES & TYPOGRAPHY */
+/* -------------------------------------- */
+:root {
+    --color-primary: #007bff; /* Primary Accent Color (Blue) */
+    --color-secondary: #0056b3; /* Darker Primary for Hover */
+    --color-background: #ffffff; /* White Space */
+    --color-text: #333;
+    --color-light-gray: #f4f4f4;
+    --font-sans: 'Poppins', sans-serif; /* Modern Sans-Serif Font */
+}
+
+/* Reset basic margins/padding and use border-box */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    color: var(--color-text);
+    background-color: var(--color-background); /* Plenty of white space */
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px; /* Max width for desktop content */
+    margin: 0 auto;
+}
+
+/* -------------------------------------- */
+/* 1. NAVIGATION BAR STYLING (FLEXBOX) */
+/* -------------------------------------- */
+.sticky-nav {
+    position: fixed; /* Sticky Navigation Bar */
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--color-background);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.nav-content {
+    display: flex; /* Use Flexbox for navigation alignment */
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: 700;
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex; /* Flexbox for horizontal links */
+}
+
+.main-nav ul li a {
+    text-decoration: none;
+    color: var(--color-text);
+    padding: 10px 15px;
+    transition: color 0.3s, border-bottom 0.3s; /* Interactive Effects */
+}
+
+.main-nav ul li a:hover {
+    color: var(--color-primary);
+    border-bottom: 2px solid var(--color-primary); /* Simple hover effect */
+}
+
+.hamburger-menu {
+    display: none; /* Hidden on desktop */
+    font-size: 1.5em;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: var(--color-text);
+}
+
+
+/* -------------------------------------- */
+/* 2. HERO SECTION STYLING (Overlay/Layout) */
+/* -------------------------------------- */
+.hero-section {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 80px; /* Offset for sticky nav */
+    background-image: url('path/to/hero-background.jpg'); /* Replace with actual image */
+    background-size: cover;
+    background-position: center;
+    color: #fff; /* Light text for readability */
+    text-align: center;
+}
+
+.hero-image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for text readability */
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2; /* Ensure content is above the overlay */
+    max-width: 800px;
+}
+
+.headline {
+    font-size: 3em;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.tagline {
+    font-size: 1.25em;
+    margin-bottom: 30px;
+    font-weight: 300;
+}
+
+/* Call-to-Action Buttons (Flexbox for alignment) */
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn {
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: var(--color-secondary);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border: 2px solid white;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: white;
+    color: var(--color-primary);
+    transform: translateY(-2px);
+}
+
+/* -------------------------------------- */
+/* 3. ABOUT SECTION STYLING (CSS GRID) */
+/* -------------------------------------- */
+.about-section {
+    padding: 80px 0;
+    background-color: var(--color-light-gray);
+}
+
+.about-grid {
+    display: grid; /* CSS Grid for layout structuring */
+    grid-template-columns: 1fr 2fr; /* Profile on left, Bio/Skills on right */
+    gap: 50px;
+    align-items: start;
+}
+
+.profile-pic {
+    width: 100%;
+    max-width: 250px;
+    border-radius: 50%; /* Circular image */
+    display: block;
+    margin: 0 auto;
+}
+
+.bio-summary h2 {
+    color: var(--color-primary);
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.skills-summary {
+    grid-column: 2; /* Place skills below bio on desktop */
+}
+
+.skills-list {
+    list-style: none;
+    display: flex; /* Flexbox for skills list arrangement */
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.skills-list li {
+    background-color: var(--color-primary);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9em;
+    font-weight: 400;
+}
+
+/* -------------------------------------- */
+/* 6. FOOTER STYLING (Minimal, Flexbox for social links) */
+/* -------------------------------------- */
+footer {
+    background-color: #222;
+    color: #ccc;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 0.9em;
+}
+
+footer .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.social-links a {
+    color: #ccc;
+    font-size: 1.5em;
+    margin: 0 10px;
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: var(--color-primary);
+}
+
+
+/* -------------------------------------- */
+/* 5. RESPONSIVE DESIGN (Media Queries) */
+/* -------------------------------------- */
+
+/* Tablet and Mobile adjustments (Screen width up to 768px) */
+@media (max-width: 768px) {
+    
+    /* Navigation: Hamburger menu and stacking */
+    .main-nav {
+        display: none; /* Hide standard nav on smaller screens */
+        width: 100%;
+        position: absolute;
+        top: 60px; /* Below the nav bar */
+        left: 0;
+        background-color: var(--color-background);
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.05);
+    }
+
+    .main-nav.active {
+        display: block; /* Show menu when active (requires JS) */
+    }
+
+    .main-nav ul {
+        flex-direction: column; /* Stack links vertically */
+        padding: 10px 0;
+    }
+
+    .main-nav ul li a {
+        display: block;
+        padding: 10px 20px;
+        border-bottom: 1px solid var(--color-light-gray);
+    }
+    
+    .hamburger-menu {
+        display: block; /* Show hamburger menu icon */
+    }
+
+    /* Hero Section */
+    .headline {
+        font-size: 2em;
+    }
+
+    .tagline {
+        font-size: 1em;
+    }
+    
+    .cta-buttons {
+        flex-direction: column; /* Stack buttons vertically */
+    }
+
+    /* About Section: Stack Grid elements vertically */
+    .about-grid {
+        grid-template-columns: 1fr; /* Single column layout */
+        text-align: center;
+        gap: 30px;
+    }
+    
+    .profile-info {
+        order: -1; /* Move profile picture to the top */
+    }
+    
+    .skills-list {
+        justify-content: center; /* Center skills list on mobile */
+    }
+    
+    .skills-summary {
+        grid-column: 1; /* Reset to single column */
+    }
+}
